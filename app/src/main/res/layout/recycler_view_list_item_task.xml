@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="task"
+            type="com.example.android.todolistapplication.database.Task" />
+
+        <variable
+            name="clickCheckboxListener"
+            type="com.example.android.todolistapplication.tasklist.TaskListener" />
+
+        <variable
+            name="clickLayoutListener"
+            type="com.example.android.todolistapplication.tasklist.TaskListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        taskBackgroundColor="@{task}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@drawable/rounded_background_no_color_shadow"
+        android:onClick="@{() -> clickLayoutListener.onClick(task)}">
+
+        <TextView
+            android:id="@+id/task_title"
+            taskColor="@{task}"
+            taskTitleStrikethrough="@{task}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:breakStrategy="high_quality"
+            android:fontFamily="@font/montserrat"
+            android:text="@{task.title}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton_checkbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="test_title" />
+
+        <ImageButton
+            android:id="@+id/imageButton_checkbox"
+            taskCheckboxImage="@{task}"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:adjustViewBounds="true"
+            android:background="@color/transparent"
+            android:contentDescription="@string/empty_checkmark_description"
+            android:onClick="@{() -> clickCheckboxListener.onClick(task)}"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="@+id/task_title"
+            app:layout_constraintEnd_toStartOf="@+id/imageView_calendar"
+            app:layout_constraintTop_toTopOf="@+id/task_title" />
+
+        <ImageView
+            android:id="@+id/imageView_calendar"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/calendar_icon_description"
+            android:src="@drawable/calendar_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/task_title"
+            app:layout_constraintEnd_toStartOf="@+id/task_creationDate"
+            app:layout_constraintTop_toTopOf="@+id/task_title" />
+
+        <TextView
+            android:id="@+id/task_creationDate"
+            taskColor="@{task}"
+            taskCreationDateFormatted="@{task}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:breakStrategy="balanced"
+            android:fontFamily="@font/montserrat"
+            app:layout_constraintBottom_toBottomOf="@+id/task_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/task_title"
+            tools:text="test_creationDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/task_list_fragment">
+
+    <fragment
+        android:id="@+id/task_list_fragment"
+        android:name="com.example.android.todolistapplication.tasklist.TaskListFragment"
+        android:label="fragment_task_list"
+        tools:layout="@layout/fragment_task_list">
+        <action
+            android:id="@+id/action_task_list_fragment_to_task_add_fragment"
+            app:destination="@id/task_add_fragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+        <action
+            android:id="@+id/action_task_list_fragment_to_task_edit_fragment"
+            app:destination="@id/task_edit_fragment"
+            app:enterAnim="@anim/popup_in"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/popup_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/task_add_fragment"
+        android:name="com.example.android.todolistapplication.taskadd.TaskAddFragment"
+        android:label="fragment_task_add"
+        tools:layout="@layout/fragment_task_add">
+        <action
+            android:id="@+id/action_task_add_fragment_to_task_list_fragment"
+            app:destination="@id/task_list_fragment"
+            app:enterAnim="@anim/slide_in_from_left"
+            app:exitAnim="@anim/exit_to_right"
+            app:popEnterAnim="@anim/slide_in_from_right"
+            app:popExitAnim="@anim/exit_to_left"
+            app:popUpTo="@id/task_list_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/task_edit_fragment"
+        android:name="com.example.android.todolistapplication.taskedit.TaskEditFragment"
+        android:label="fragment_task_edit"
+        tools:layout="@layout/fragment_task_edit">
+        <action
+            android:id="@+id/action_task_edit_fragment_to_task_list_fragment"
+            app:destination="@id/task_list_fragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/popup_out"
+            app:popEnterAnim="@anim/popup_in"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@id/task_list_fragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
+
+</navigation>

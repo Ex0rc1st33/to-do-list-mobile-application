@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Welcome to your To-Do list</string>
+    <string name="button_add_task">Add new task</string>
+    <string name="task_title">Title of the task</string>
+    <string name="task_description">Description of the task</string>
+    <string name="button_clear_tasks">Clear tasks</string>
+    <string name="calendar_icon_description">Icon of a calendar</string>
+    <string name="empty_checkmark_description">Icon of an empty checkmark box</string>
+    <string name="filled_checkmark_description">Icon of a filled checkmark box</string>
+    <string name="task_icon_description">Icon of a task</string>
+    <string name="button_back">Back</string>
+    <string name="button_delete_task">Delete task</string>
+    <string name="header_label">Your tasks</string>
+    <string name="empty_list_label">You don\'t have any tasks yet. Click the button in the lower right corner to add more.</string>
+</resources>
